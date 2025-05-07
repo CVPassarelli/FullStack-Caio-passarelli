@@ -18,7 +18,7 @@ export function useWebSocket(url: string) {
     socket.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data) as ITask | ITask[];
-        console.log(data);
+
         if (Array.isArray(data)) {
           setTasks(data);
         } else {

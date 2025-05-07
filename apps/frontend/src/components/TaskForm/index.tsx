@@ -22,6 +22,7 @@ interface TaskFormProps {
   assigneUsers: IUser[];
   onClose: () => void;
   onSuccess: () => void;
+  onError: () => void;
 }
 
 export const TaskForm = ({
@@ -30,6 +31,7 @@ export const TaskForm = ({
   assigneUsers,
   onClose,
   onSuccess,
+  onError,
 }: TaskFormProps) => {
   const {
     register,
@@ -56,7 +58,6 @@ export const TaskForm = ({
   }, [initialValues, setValue]);
 
   const onSubmit = async (data: ITaskSchema) => {
-    console.log(data);
     try {
       if (isEditing && initialValues?.id) {
         await updateTask({ ...data, id: initialValues.id });
@@ -66,7 +67,7 @@ export const TaskForm = ({
       onSuccess();
       onClose();
     } catch (err) {
-      console.error("Error saving task:", err);
+      onError();
     }
   };
 

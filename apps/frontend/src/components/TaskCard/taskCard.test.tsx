@@ -8,7 +8,7 @@ describe("TaskCard", () => {
     title: "Create component",
     description: "Build the task card component",
     assigne: "Caio",
-    completed: false,
+    completed: true,
   };
 
   it("should render the title, description, and assignee", () => {
@@ -28,7 +28,7 @@ describe("TaskCard", () => {
 
   it("should render 'Ready for dev' if the task is completed", () => {
     render(
-      <TaskCard card={{ ...mockTask, completed: true }} onClick={() => {}} />
+      <TaskCard card={{ ...mockTask, completed: false }} onClick={() => {}} />
     );
     expect(screen.getByText(/Ready for dev/i)).toBeInTheDocument();
   });

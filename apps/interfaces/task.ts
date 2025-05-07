@@ -10,3 +10,9 @@ export interface IUser {
   id: number;
   name: string;
 }
+
+export interface IStatusRequest {
+  message?: string;
+  statusCode?: number;
+  showToast?: boolean;
+}
