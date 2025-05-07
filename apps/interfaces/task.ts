@@ -5,3 +5,8 @@ export interface ITask {
   completed: boolean;
   assigne: string;
 }
+
+export interface IUser {
+  id: number;
+  name: string;
+}

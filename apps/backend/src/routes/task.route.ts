@@ -7,7 +7,7 @@ import {
   updateTask,
 } from "../controller/task.controller";
 import { validate } from "../middleware/validate";
-import { createTaskSchema } from "../validations/task.schema";
+import { taskSchema } from "../../../interfaces/schema/task.schema";
 
 const router = Router();
 
@@ -17,13 +17,13 @@ router.get("/task/:id", getTasksById as unknown as RequestHandler);
 
 router.post(
   "/task",
-  validate(createTaskSchema),
+  validate(taskSchema),
   createTask as unknown as RequestHandler
 );
 
 router.put(
   "/task/:id",
-  validate(createTaskSchema),
+  validate(taskSchema),
   updateTask as unknown as RequestHandler
 );
 

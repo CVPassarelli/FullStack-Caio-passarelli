@@ -35,7 +35,7 @@ describe("Task Controller", () => {
     jest.resetModules();
   });
 
-  it("getTasks deve retornar todas as tasks", async () => {
+  it("getTasks should return all tasks", async () => {
     const mockTasks = [
       {
         id: 1,
@@ -54,7 +54,7 @@ describe("Task Controller", () => {
     expect(res.json).toHaveBeenCalledWith(mockTasks);
   });
 
-  it("getTasksById deve retornar uma task específica", async () => {
+  it("getTasksById should return tssk by id", async () => {
     const mockTask = {
       id: 1,
       title: "Teste",
@@ -74,7 +74,7 @@ describe("Task Controller", () => {
     expect(res.json).toHaveBeenCalledWith(mockTask);
   });
 
-  it("createTask deve criar uma nova task", async () => {
+  it("createTask should create a task", async () => {
     const req = {
       body: {
         title: "Nova",
@@ -98,7 +98,7 @@ describe("Task Controller", () => {
     expect(res.json).toHaveBeenCalledWith(req.body);
   });
 
-  it("updateTask deve atualizar uma task existente", async () => {
+  it("updateTask should update existing value", async () => {
     const req = {
       params: { id: "1" },
       body: {
@@ -120,7 +120,7 @@ describe("Task Controller", () => {
     expect(res.json).toHaveBeenCalledWith(req.body);
   });
 
-  it("deleteTask deve excluir uma task existente", async () => {
+  it("deleteTask should delete a task", async () => {
     const req = { params: { id: "1" } } as unknown as Request;
     const res = mockResponse();
     const next = jest.fn();
